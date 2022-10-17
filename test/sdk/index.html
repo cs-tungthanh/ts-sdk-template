@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Use Robohi Platform SDK sample</title>
+        <link rel="stylesheet" href="./index.css" />
+        <script src="./scripts/json-viewer.js"></script>
+
+        <!-- EXTERNAL LIBRARY -->
+        <script src="https://www.unpkg.com/aws-sdk@2.1086.0/dist/aws-sdk.min.js"></script>
+        <script src="https://unpkg.com/@aws-amplify/core@3.8.15/dist/aws-amplify-core.min.js"></script>
+        <script src="https://unpkg.com/@aws-amplify/auth@1.0.3/dist/aws-amplify-auth.min.js"></script>
+        <script src="https://unpkg.com/axios@0.26.0/dist/axios.min.js"></script>
+        <script src="https://www.unpkg.com/joi@17.6.0/dist/joi-browser.min.js"></script>
+        <script src="https://unpkg.com/url-parse@1.4.3/dist/url-parse.min.js"></script>
+
+        <!-- ROBOHI PLATFORM SDK -->
+        <script src="../../dist/index.js"></script>
+
+        <!-- IMPLEMENT ROBOHI PLATFORM SDK -->
+        <script>
+            RHP.RobohiPlatformSDKInstance.configure({
+                customerId: '',
+                gatewayBaseUrl: '',
+                s2sAuth: {
+                    authToken: ''
+                }
+            });
+
+            function onGetRobots() {
+                var element = document.querySelector('.target');
+                element.innerHTML = 'Loading...';
+                RHP.RobotApi.Client.getListRobots({ page: 0, pageSize: 1, scope: 'full' })
+                    .then((result) => {
+                        element.innerHTML = jsonViewer(result, true);
+                    })
+                    .catch((error) => {
+                        element.innerHTML = jsonViewer(error, true);
+                    });
+            }
+
+            function onClear() {
+                document.querySelector('.target').innerHTML = '';
+            }
+        </script>
+    </head>
+    <body>
+        <div class="content">
+            <div class="info">
+                <h1>Use Robohi Platform SDK sample</h1>
+            </div>
+            <hr />
+            <div>
+                <button onclick="onGetRobots();">Get Robots</button>
+                <button onclick="onClear();">Clear</button>
+            </div>
+            <div class="target"></div>
+        </div>
+    </body>
+</html>
