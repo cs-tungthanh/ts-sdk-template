@@ -32,7 +32,6 @@
         "strict": true,
         "pretty": true,
         "skipLibCheck": true,
-        "suppressImplicitAnyIndexErrors": true,
         "allowJs": true,
         "esModuleInterop": true,
         "resolveJsonModule": true,
