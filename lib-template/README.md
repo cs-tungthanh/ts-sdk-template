@@ -1,18 +1,18 @@
-# SDK - Typescript Template
+# Library - Typescript Template
 
-The template to build SDK in typescript.
+The template to build a library in typescript.
 
 On this project using:
 
--   webpack v5.38.1
--   typescript v4.1.3
+-   rollup v3.29.2
+-   typescript v5.2.2
 
 ---
 
 # System Requirements
 
--   Node 12.x
--   Yarn
+-   Node 16.x
+-   pnpm 8.x
 
 # What's inside
 
@@ -42,45 +42,26 @@ On this project using:
 
 To get started install package globally on your computer:
 
--   **Yarn** is a JavaScript dependency management tool that supports monorepos through workspaces.
+-   [**pnpm**](https://pnpm.io/) is a JavaScript dependency management tool that supports monorepos through workspaces.
 
-```sh
-
-        https://classic.yarnpkg.com/en/docs/install
-```
-
--   **webpack-cli** provides a flexible set of commands for developers to increase speed when setting up a custom webpack project
-
-```sh
-
-        yarn global add webpack-cli
-```
-
--   **Rimraf** is a tool for deep deletion (like rm -rf) module that provides asynchronous deep- deletion of files and directories.
-
-```sh
-
-        yarn global add rimraf
-```
 
 ---
 
 # Build project
 
 ```sh
-
-    yarn build
+        pnpm install
+        pnpm build
 ```
 
-After build this project, **webpack-cli** generate output file to **dist** and **artifacts**.
+After build this project, **rollup** generate output file to **dist** and **artifacts**.
 
 ---
 
 # Start project
 
 ```sh
-
-    yarn start
+    pnpm start
 ```
 
 When starting, Webpack will then automatically recompile source code when it detects any change.
@@ -92,16 +73,14 @@ When starting, Webpack will then automatically recompile source code when it det
 **Build project with specific environment**
 
 ```sh
-
-        yarn build:dev
-        yarn build:prod
+        pnpm build:dev
+        pnpm build:prod
 ```
 
 # Clean
 
--   Clean up project and node modules: `yarn clean:all`
-
--   Clean up project: `yarn clean`
+-   Clean up project and node modules: `pnpm clean:all`
+-   Clean up project: `pnpm clean`
 
 ---
 
@@ -110,48 +89,43 @@ When starting, Webpack will then automatically recompile source code when it det
 -   Add a new package module to dependencies:
 
 ```sh
-
-        yarn add <module>
+        pnpm add <module>
         # <module>: install one or more packages
-        # ex: yarn add axios
+        # ex: pnpm add axios
 ```
 
 -   Add a new package module to devDependencies:
 
 ```sh
-
-        yarn add -D <module>
+        pnpm add -D <module>
         # <module>: install one or more packages
         # -D: install in devDependencies
-        # ex: yarn add -D axios
+        # ex: pnpm add -D axios
 ```
 
 -   Remove package:
 
 ```sh
-
-        yarn remove <module>
+        pnpm remove <module>
         # <module>: remove one or more packages
-        # ex: yarn remove axios
+        # ex: pnpm remove axios
 ```
 
 ---
 
 # Note
-
 **Install SDK as a symlink**
 
 ```sh
-
-        yarn add link:sdks/rhp-sdk
+        pnpm add link:sdks/rhp-sdk
 ```
 
 **Install SDK as a dependency**
 
 ```sh
-        yarn add ./artifacts/sdk-name-<version>.tgz
+        pnpm add ./artifacts/sdk-name-<version>.tgz
         # <version>: current version of sdk
-        # ex: yarn add ./artifacts/sdk-v1.0.4.tgz
+        # ex: pnpm add ./artifacts/sdk-v1.0.4.tgz
 ```
 
 **Install SDK as a js library**
@@ -164,9 +138,8 @@ When starting, Webpack will then automatically recompile source code when it det
 **Install SDK from package cloud**
 
 -   Config package cloud: set private key to access to private package cloud repository.
-
 -   Add  SDK to project:
 
 ```sh
-        yarn add packageName@version
+        pnpm add packageName@version
 ```
